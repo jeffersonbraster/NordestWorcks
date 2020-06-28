@@ -8,16 +8,16 @@ import {
   JoinColumn,
 } from 'typeorm';
 
-import Worcks from './Worcks';
+import Works from './Works';
 
 @Entity('coments')
 export default class Coments {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => Worcks)
+  @ManyToOne(() => Works)
   @JoinColumn({ name: 'provider_id' })
-  worckscoment: Worcks;
+  worckscoment: Works;
 
   @Column({ length: 250 })
   comentarios: string;

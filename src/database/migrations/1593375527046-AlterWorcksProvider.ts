@@ -9,7 +9,7 @@ export default class AlterWorcksProvider1593375527046
   implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.addColumn(
-      'worcks',
+      'works',
       new TableColumn({
         name: 'provider_id',
         type: 'uuid',
@@ -18,9 +18,9 @@ export default class AlterWorcksProvider1593375527046
     );
 
     await queryRunner.createForeignKey(
-      'worcks',
+      'works',
       new TableForeignKey({
-        name: 'WorcksProvider',
+        name: 'WorksProvider',
         columnNames: ['provider_id'],
         referencedColumnNames: ['id'],
         referencedTableName: 'users',
@@ -31,8 +31,8 @@ export default class AlterWorcksProvider1593375527046
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('worcks', 'WorcksProvider');
+    await queryRunner.dropForeignKey('works', 'WorksProvider');
 
-    await queryRunner.dropColumn('worcks', 'provider_id');
+    await queryRunner.dropColumn('works', 'provider_id');
   }
 }

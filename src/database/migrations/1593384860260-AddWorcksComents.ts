@@ -11,7 +11,7 @@ export default class AddWorcksComents1593384860260
     await queryRunner.addColumn(
       'coments',
       new TableColumn({
-        name: 'worcks_id',
+        name: 'works_id',
         type: 'uuid',
         isNullable: true,
       }),
@@ -20,10 +20,10 @@ export default class AddWorcksComents1593384860260
     await queryRunner.createForeignKey(
       'coments',
       new TableForeignKey({
-        name: 'WorcksComents',
-        columnNames: ['worcks_id'],
+        name: 'WorksComents',
+        columnNames: ['works_id'],
         referencedColumnNames: ['id'],
-        referencedTableName: 'worcks',
+        referencedTableName: 'works',
         onDelete: 'SET NULL',
         onUpdate: 'CASCADE',
       }),
@@ -31,8 +31,8 @@ export default class AddWorcksComents1593384860260
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('coments', 'WorcksComents');
+    await queryRunner.dropForeignKey('coments', 'WorksComents');
 
-    await queryRunner.dropColumn('coments', 'worcks_id');
+    await queryRunner.dropColumn('coments', 'works_id');
   }
 }

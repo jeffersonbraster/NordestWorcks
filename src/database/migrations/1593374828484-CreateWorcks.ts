@@ -4,7 +4,7 @@ export default class CreateWorcks1593374828484 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'worcks',
+        name: 'works',
         columns: [
           {
             name: 'id',
@@ -45,6 +45,6 @@ export default class CreateWorcks1593374828484 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('worcks');
+    await queryRunner.dropTable('works');
   }
 }
