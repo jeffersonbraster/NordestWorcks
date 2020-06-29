@@ -15,6 +15,9 @@ export default class Worcks {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  @Column()
+  provider_id: string;
+
   @ManyToOne(() => User)
   @JoinColumn({ name: 'provider_id' })
   provider: User;

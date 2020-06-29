@@ -15,8 +15,11 @@ export default class Coments {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  @Column()
+  works_id: string;
+
   @ManyToOne(() => Works)
-  @JoinColumn({ name: 'provider_id' })
+  @JoinColumn({ name: 'works_id' })
   worckscoment: Works;
 
   @Column({ length: 250 })

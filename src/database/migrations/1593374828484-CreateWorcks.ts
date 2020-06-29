@@ -28,6 +28,7 @@ export default class CreateWorcks1593374828484 implements MigrationInterface {
           {
             name: 'banner',
             type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'created_at',
