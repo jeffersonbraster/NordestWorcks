@@ -3,7 +3,11 @@ import { getCustomRepository } from 'typeorm';
 import CreateWorksService from '../services/CreateWorksService';
 import WorksRepository from '../repositories/WorksRepository';
 
+import ensureAuthenticaded from '../middlewares/ensureAuthenticated';
+
 const worksRouter = Router();
+
+worksRouter.use(ensureAuthenticaded);
 
 worksRouter.get('/', async (request, response) => {
   const worksRepository = getCustomRepository(WorksRepository);

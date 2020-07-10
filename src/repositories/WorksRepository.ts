@@ -3,11 +3,9 @@ import Work from '../models/Works';
 
 @EntityRepository(Work)
 export default class WorksRepository extends Repository<Work> {
-  public async findByDate(created_at: Date): Promise<Work | null> {
-    const findWork = await this.findOne({
-      order: { created_at: 'DESC' },
-    });
+  public async findAll(): Promise<Work> {
+    const findWork = await this.findAll();
 
-    return findWork || null;
+    return findWork;
   }
 }
