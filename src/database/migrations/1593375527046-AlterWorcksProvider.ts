@@ -10,18 +10,14 @@ export default class AlterWorcksProvider1593375527046
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.addColumn(
       'works',
-      new TableColumn({
-        name: 'provider_id',
-        type: 'uuid',
-        isNullable: true,
-      }),
+      new TableColumn({ name: 'user_id', type: 'uuid', isNullable: true }),
     );
 
     await queryRunner.createForeignKey(
       'works',
       new TableForeignKey({
         name: 'WorksProvider',
-        columnNames: ['provider_id'],
+        columnNames: ['user_id'],
         referencedColumnNames: ['id'],
         referencedTableName: 'users',
         onDelete: 'SET NULL',
@@ -33,6 +29,6 @@ export default class AlterWorcksProvider1593375527046
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropForeignKey('works', 'WorksProvider');
 
-    await queryRunner.dropColumn('works', 'provider_id');
+    await queryRunner.dropColumn('works', 'user_id');
   }
 }

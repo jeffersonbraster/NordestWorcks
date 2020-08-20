@@ -14,7 +14,7 @@ usersRouter.get('/', async (request, response) => {
   //
   const usersRepository = getCustomRepository(UserRepository);
   const users = await usersRepository.find({
-    select: ['name', 'cpf', 'email', 'endereco', 'uf'],
+    select: ['id', 'name', 'cpf', 'email', 'endereco', 'uf'],
   });
 
   return response.json(users);

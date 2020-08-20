@@ -16,11 +16,11 @@ export default class Worcks {
   id: string;
 
   @Column()
-  provider_id: string;
+  user_id: string;
 
   @ManyToOne(() => User)
-  @JoinColumn({ name: 'provider_id' })
-  provider: User;
+  @JoinColumn({ name: 'user_id' })
+  user: User;
 
   @Column({ length: 100 })
   title: string;
